@@ -23,6 +23,8 @@ namespace Conduit.Features.Users
             public string Email { get; set; }
 
             public string Password { get; set; }
+
+            public string Role { get; set; }
         }
 
         public class UserDataValidator : AbstractValidator<UserData>
@@ -82,7 +84,7 @@ namespace Conduit.Features.Users
                     Email = message.User.Email,
                     Hash = _passwordHasher.Hash(message.User.Password, salt),
                     Salt = salt,
-                    Role = "public"
+                    Role = message.User.Role
                 };
 
                 _context.Persons.Add(person);

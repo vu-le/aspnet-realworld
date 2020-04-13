@@ -11,6 +11,8 @@ namespace Conduit.Features.Users
         public string Image { get; set; }
 
         public string Token { get; set; }
+
+        public string Role { get; set; }
     }
 
 

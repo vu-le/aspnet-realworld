@@ -16,6 +16,8 @@ namespace Conduit.Domain
 
         public string Image { get; set; }
 
+        public string Role { get; set; }
+
         [JsonIgnore]
         public List<ArticleFavorite> ArticleFavorites { get; set; }
 

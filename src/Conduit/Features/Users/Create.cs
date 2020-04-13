@@ -81,7 +81,8 @@ namespace Conduit.Features.Users
                     Username = message.User.Username,
                     Email = message.User.Email,
                     Hash = _passwordHasher.Hash(message.User.Password, salt),
-                    Salt = salt
+                    Salt = salt,
+                    Role = "public"
                 };
 
                 _context.Persons.Add(person);

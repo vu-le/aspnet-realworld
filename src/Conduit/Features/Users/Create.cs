@@ -22,6 +22,10 @@ namespace Conduit.Features.Users
 
             public string Email { get; set; }
 
+            public string Bio { get; set; }
+
+            public string Image { get; set; }
+
             public string Password { get; set; }
 
             public string Role { get; set; }
@@ -33,7 +37,9 @@ namespace Conduit.Features.Users
             {
                 RuleFor(x => x.Username).NotNull().NotEmpty();
                 RuleFor(x => x.Email).NotNull().NotEmpty();
+                RuleFor(x => x.Bio).NotNull().NotEmpty();
                 RuleFor(x => x.Password).NotNull().NotEmpty();
+                RuleFor(x => x.Role).NotNull().NotEmpty();
             }
         }
 
@@ -82,6 +88,8 @@ namespace Conduit.Features.Users
                 {
                     Username = message.User.Username,
                     Email = message.User.Email,
+                    Bio = message.User.Bio,
+                    Image = message.User.Image,
                     Hash = _passwordHasher.Hash(message.User.Password, salt),
                     Salt = salt,
                     Role = message.User.Role

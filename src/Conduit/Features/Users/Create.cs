@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Conduit.Domain;
+using Conduit.Features.Articles;
 using Conduit.Infrastructure;
 using Conduit.Infrastructure.Errors;
 using Conduit.Infrastructure.Security;
@@ -36,7 +38,7 @@ namespace Conduit.Features.Users
             public UserDataValidator()
             {
                 RuleFor(x => x.Username).NotNull().NotEmpty();
-                RuleFor(x => x.Email).NotNull().NotEmpty();
+                RuleFor(x => x.Email).NotNull().NotEmpty().EmailAddress();
                 RuleFor(x => x.Bio).NotNull().NotEmpty();
                 RuleFor(x => x.Password).NotNull().NotEmpty();
                 RuleFor(x => x.Role).NotNull().NotEmpty();

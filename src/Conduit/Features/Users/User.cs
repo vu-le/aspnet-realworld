@@ -1,3 +1,6 @@
+using Conduit.Features.Articles;
+using System.Collections.Generic;
+
 namespace Conduit.Features.Users
 {
     public class User
